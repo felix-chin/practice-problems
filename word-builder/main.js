@@ -12,7 +12,7 @@
 
 function wordBuilder(wordToSpell) {
   var newArray = [];
-  var word = ''
+  var word = '';
   for (var i = 0; i < wordToSpell.length; i++) {
     word += wordToSpell[i]
     newArray.push(word);
