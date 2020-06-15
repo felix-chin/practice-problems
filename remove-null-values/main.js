@@ -9,7 +9,7 @@ function removeNullValues(array) {
 
 
 // dont use splice - below is more efficient
-function removeNullValues(array) {
+function removeNullValues2(array) {
   var result = [];
   for (var i = array.length; i >= 0; i--) {
     if (array[i] !== null) {
