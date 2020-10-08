@@ -25,3 +25,31 @@ validPalindrome("algorithm");
 validPalindrome("a man, a plan, a canal: Panama.");
 
 //For loop solution
+const validPalindrome2 = (str) => {
+  if (str.length <= 1) {
+    return true;
+  };
+
+  let newStr = '';
+
+  if (newStr[0] !== newStr[newStr.length - 1]) {
+    return false;
+  }
+
+  return newStr.split('').reverse().join('') == newStr;
+}
+
+
+const fizzBuzz = () => {
+  for (let i = 1; i <= 100; i ++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('fizz buzz!');
+    } else if (i % 3 === 0) {
+      console.log('fizz!');
+    } else if (i % 5 === 0) {
+      console.log('buzz!');
+    } else {
+      console.log(i);
+    }
+  }
+}
