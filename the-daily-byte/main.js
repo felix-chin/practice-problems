@@ -31,12 +31,24 @@ const validPalindrome2 = (str) => {
   };
 
   let newStr = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== '.' || str[i] !== ',' || str[i] !== ':' || str[i] !== ' ' ) {
+      newStr += str[i];
+    }
+  };
+
+  console.log(newStr);
 
   if (newStr[0] !== newStr[newStr.length - 1]) {
     return false;
-  }
+  };
 
-  return newStr.split('').reverse().join('') == newStr;
+  let reverseStr = '';
+  for (let i = newStr.length - 1; i >= 0; i--) {
+    reverseStr += newStr[i];
+  };
+
+  return newStr === reverseStr;
 }
 
 
