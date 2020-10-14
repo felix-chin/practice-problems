@@ -1,10 +1,12 @@
 const longestCommonPrefix = (arr) => {
-  let prefix = '';
-  let placeholder = '';
+  let prefix = arr[0];
   for (let i = 1; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      if ( arr[i][j] === arr[i - 1][j]) {
-        prefix += arr[i][j]
-      }
+    if (arr[i].indexOf(prefix) === -1 || arr[i].indexOf(prefix) !== 0) {
+      prefix = prefix.slice(0, -1);
+      i--;
     }
+    console.log(prefix);
+  }
+
+  return screen.length === 0 ? '' : prefix;
 }
