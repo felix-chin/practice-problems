@@ -1,6 +1,6 @@
 // Example of memoization being used in a recursive algorithm
-// space: O(n)?
-// time: O(n)?
+// space: O(n)? recursion
+// time: O(n)? recursion
 const memo = {};
 
 const factorial = (n) => {
