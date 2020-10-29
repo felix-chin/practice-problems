@@ -3,6 +3,9 @@
 // Notice that the solution set must not contain duplicate triplets.
 
 var threeSum = function (nums) {
+  if (nums.length < 3) {
+    return [];
+  }
   const map = {};
   const result = [];
   for (let i = 0; i < nums.length; i++) {
@@ -11,8 +14,10 @@ var threeSum = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       complement = (nums[j] + nums[i]) * -1;
-      if (map[complement]) {
-        result.push([nums[i], nums[j], complement]);
+      if (map[complement] && map[complement] !== j) {
+        if (!result.includes([nums[i], nums[j], complement])) {
+          result.push([nums[i], nums[j], complement]);
+        }
       };
     }
   }
