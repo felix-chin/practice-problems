@@ -1,13 +1,12 @@
-function sockMerchant(n, ar) {
-  let counter = 0;
-  const map = {};
-  for (let i = 0; i < n; i++) {
-    if (map.hasOwnProperty(ar[i])) {
-      counter++;
-      delete map[ar[i]];
-    } else {
-      map[ar[i]] = i;
+function jumpingOnClouds(c) {
+  let jumps = 0;
+  for (let i = 0; i < c.length; i++) {
+    if (c[i + 2] === 0) {
+      jumps++;
+      i++;
+    } else if (c[i + 1] === 0) {
+      jumps++;
     }
   }
-  return counter;
+  return jumps;
 }
