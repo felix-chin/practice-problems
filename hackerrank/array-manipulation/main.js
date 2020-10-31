@@ -1,3 +1,6 @@
+// Brute Force solution
+// time: O(n^2)
+// space: probably O(n^2) from 2D queries array
 function arrayManipulation(n, queries) {
   const result = [];
   let maxValue = -Infinity;
@@ -15,29 +18,28 @@ function arrayManipulation(n, queries) {
   return maxValue;
 }
 
+// Calculate the rate of change (slope)
+// return where sum of rate of change is largest value
+// time: O(n)
+// space: probably O(n^2) from 2D queries array
 function arrayManipulation(n, queries) {
   const result = [];
-  let globalMax = 0;
-  let currentMax = 0;
+  let max = 0;
+  let sum = 0;
   for (let i = 0; i < n; i++) {
     result.push(0);
   }
-  for (let i = 0; i < queries.length; i++) {
-    result[queries[i][0] - 1] += queries[i][2];
-    if (result[queries[i][1]] !== undefined) {
-      result[queries[i][1]] += -queries[i][2];
+  for (const query of queries) {
+    result[query[0] - 1] += query[2];
+    if (result[query[1]] !== undefined) {
+      result[query[1]] += -query[2];
     }
   }
   for (let i = 0; i < result.length; i++) {
-    if (result[i] < 0) {
-      currentMax = 0;
-    }
-    if (result[i] + currentMax > currentMax) {
-      currentMax = result[i] + currentMax;
-    }
-    if (currentMax > globalMax) {
-      globalMax = currentMax;
+    sum += result[i];
+    if (sum > max) {
+      max = sum;
     }
   }
-  return globalMax;
+  return max;
 }
