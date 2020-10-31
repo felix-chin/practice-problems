@@ -19,6 +19,5 @@ function checkMagazine(magazine, note) {
       map[note[i]]--;
     }
   }
-  console.log(map)
   console.log('Yes');
 }
