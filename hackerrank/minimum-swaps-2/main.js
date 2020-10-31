@@ -1,11 +1,14 @@
 function minimumSwaps(arr) {
   let placeholder;
-  let mid = Math.floor(arr.length / 2)
+  let swaps = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[0] > arr[mid]) {
-      placeholder = arr[mid];
-      arr[mid] = arr[0];
-      arr[0] = placeholder;
+    if (arr[i] !== i + 1) {
+      placeholder = arr[arr[i] - 1];
+      arr[arr[i] - 1] = arr[i];
+      arr[i] = placeholder;
+      swaps++
+      i--;
     }
   }
+  return swaps;
 }
