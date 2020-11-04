@@ -1,6 +1,7 @@
-// time:
-// space:
-const arr = [100,2,40,0,31,65,8,40,5];
+// time: O(n*k)
+// input array is n and k is counting sort array
+// space: O(n)
+const arr = [10,2,15,0,11,1,8,1,5];
 function activityNotifications(expenditure, d) {
   debugger;
   let n = 0;
@@ -26,6 +27,8 @@ function activityNotifications(expenditure, d) {
     if (expenditure[i] >= m * 2) {
       n++;
     }
+    // instead of resorting on every iteration of the initial expenditures loop, decrement the count of the old element and increment count of the new element to shift the elements in scope of 'd' for each iteration
+    // doing this is similar to using a queue data structure
     countSorted[expenditure[i - d]]--;
     countSorted[expenditure[i]]++;
   }
