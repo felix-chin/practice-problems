@@ -1,5 +1,5 @@
-// time:
-// space:
+// time: O(n)
+// space: O(n)
 function budgetShopping(n, bundleQuantities, bundleCosts) {
   return getSolution(n, 0, 0, bundleQuantities, bundleCosts);
 }
