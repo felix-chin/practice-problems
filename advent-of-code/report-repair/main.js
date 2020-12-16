@@ -1,4 +1,4 @@
-const reportRepair = (expenses) => {
+const reportRepair1 = (expenses) => {
   const map = {};
   let res;
   for (let i = 0; i < expenses.length; i++) {
@@ -10,6 +10,22 @@ const reportRepair = (expenses) => {
     }
   }
   return res;
+}
+
+const reportRepair2 = (expenses) => {
+  const map = {};
+  let res;
+  for (let i = 0; i < expenses.length; i++) {
+    const complement = 2020 - expenses[i];
+    for (let j = i + 1; j < expenses.length; j++) {
+      const target = complement - expenses[j];
+      if (map.hasOwnProperty(target)) {
+        res = target * expenses[i] * expenses[j];
+        return res;
+      }
+    }
+    map[expenses[i]] = i;
+  }
 }
 
 const expenses = [
