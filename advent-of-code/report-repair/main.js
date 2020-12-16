@@ -16,6 +16,10 @@ const reportRepair2 = (expenses) => {
   const map = {};
   let res;
   for (let i = 0; i < expenses.length; i++) {
+    if (i === 0) {
+      map[expenses[i]] = i;
+      continue;
+    }
     const complement = 2020 - expenses[i];
     for (let j = i + 1; j < expenses.length; j++) {
       const target = complement - expenses[j];
