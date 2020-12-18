@@ -7,10 +7,10 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
   const arr = data.split('\n').flatMap(val => {
     return val.split(' ');
   });
-  passportProcessing(arr);
+  passportProcessing1(arr);
 })
 
-const passportProcessing = (passports) => {
+const passportProcessing1 = (passports) => {
   let validPassports = 0;
   const set = new Set();
 
@@ -21,7 +21,7 @@ const passportProcessing = (passports) => {
     set.add('eyr');
     set.add('ecl');
     set.add('hcl');
-    set.add('hgy')
+    set.add('hgt')
   }
 
   for (let i = 0; i < passports.length; i++) {
@@ -50,8 +50,10 @@ const passportProcessing = (passports) => {
       case 'hcl':
         set.delete('hcl');
         break;
-      case 'hgy':
-        set.delete('hgy');
+      case 'hgt':
+        set.delete('hgt');
     }
   }
+
+  console.log(validPassports);
 }
