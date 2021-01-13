@@ -1,12 +1,11 @@
 var hasCycle = function (head) {
-  let node = head;
-  const map = {};
-  while (node !== null) {
-    if (map[node.val] === node.next) {
+  const map = new Set();
+  while (head !== null) {
+    if (map.has(head)) {
       return true;
     } else {
-      map[node.val] = node.next;
-      node = node.next
+      map.add(head);
+      head = head.next;
     }
   }
   return false;
