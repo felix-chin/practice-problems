@@ -14,7 +14,6 @@ function groupingDishes(dishes) {
     }
   }
 
-  console.log(map)
   for (const key in map) {
     if (map[key].length >= 2) {
       result = [...result, [key, ...map[key].sort()]];
