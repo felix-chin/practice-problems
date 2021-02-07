@@ -1,16 +1,11 @@
 function solution(A, K) {
   // write your code in JavaScript (Node.js 8.9.4)
-  if (A.length === 1 || K === 0) {
-    return A;
-  }
-  const result = new Array(A.length)
-  const len = A.length - 1;
-  A.forEach((num, i) => {
-    let index = i + K;
-    if (index > len) {
-      index = index - len - 1;
-    }
-    result[index] = num;
-  })
-  return result;
+
+  // use modulo division to handle multiple cycles of the array length
+  // i.e. K = 22 but A.length  = 3
+  K = K % A.length;
+  // slice the array in half at the index that will become index 0 after rotation
+  const sliceIndex = A.length - K;
+  // combine both arrays with slicedIndex as the first half
+  return [..A.slice(sliceIndex, ...A.slice(0, sliceIndex))]
 }
