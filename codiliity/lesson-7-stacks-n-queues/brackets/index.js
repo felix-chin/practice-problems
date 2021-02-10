@@ -7,9 +7,9 @@ function solution(S) {
   }
   const stack = [];
   for (let i = 0; i < S.length; i++) {
-    // check if S[i] is an open or close bracket
+    // check if S[i] is a closing bracket
     if (map.hasOwnProperty(S[i])) {
-      // if close bracket, check if top of stack contains matching open bracket
+      // if closing bracket, check if top of stack contains matching opening bracket
       if (stack[stack.length - 1] === map[S[i]]) {
         // if it does, remove from stack
         stack.pop();
@@ -17,7 +17,7 @@ function solution(S) {
         // if not, add to top of stack
         stack.push(S[i]);
       }
-      // if S[i] is an open bracket, add to top of stack
+      // if S[i] is an opening bracket, add to top of stack
     } else {
       stack.push(S[i]);
     }
